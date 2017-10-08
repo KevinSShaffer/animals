@@ -1,6 +1,5 @@
 
 #include <iostream>
-#include <vector>
 #include <fstream>
 #include <string>
 #include "str_func.h"
@@ -12,12 +11,18 @@ int main()
 {
 	std::string csvLine = readCsvLine("files\\Dog.csv");
 
-	std::vector<std::string> vec = str_func::split(csvLine, ',');
+	Dog dog = Dog::Create(csvLine);
 
-	for (int i = 0; i < vec.size(); i++)
-		std::cout << vec[i] << std::endl;
+	std::cout << "Name: " << dog.GetName() << std::endl;
+	std::cout << "Breed: " << dog.GetBreed() << std::endl;
+	std::cout << "Age: " << dog.GetAge() << std::endl;	
+	std::cout << "Color: " << dog.GetColor() << std::endl;
+	std::cout << "Weight: " << dog.GetWeight() << std::endl;
 
-	cin >> csvLine;
+	std::cout << "Press ctrl + z (ctrl + d) to quit." << std::endl;
+	while (std::cin)
+	{
+	}
 
 	return 0;
 }

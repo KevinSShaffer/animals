@@ -1,6 +1,7 @@
 
 #include <vector>
 #include <string>
+#include <stdlib.h>
 #include "str_func.h"
 
 std::vector<std::string> str_func::split(std::string sentence, char delimiter)
