@@ -1,7 +1,9 @@
 
 #include <iostream>
+#include <vector>
 #include <fstream>
 #include <string>
+#include "str_func.h"
 #include "dog.h"
 
 std::string readCsvLine(std::string);
@@ -10,9 +12,12 @@ int main()
 {
 	std::string csvLine = readCsvLine("files\\Dog.csv");
 
-	std::cout << csvLine << std::endl;
+	std::vector<std::string> vec = str_func::split(csvLine, ',');
 
-	std::cin >> csvLine;
+	for (int i = 0; i < vec.size(); i++)
+		std::cout << vec[i] << std::endl;
+
+	cin >> csvLine;
 
 	return 0;
 }
