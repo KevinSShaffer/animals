@@ -6,7 +6,7 @@
 class Fish : public Animal
 {
 public:
-	static Fish Create(std::string);
+	Fish(std::string);
 
 	// freshwater?
 	bool GetFreshwater() const;

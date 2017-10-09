@@ -4,24 +4,22 @@
 #include "fish.h"
 #include "str_func.h"
 
-Fish Fish::Create(std::string csvLine)
+Fish::Fish(std::string filePath) :
+	Animal(filePath)
 {
-	Fish fish;
-	std::vector<std::string> params = str_func::split(csvLine, ',');
+	std::vector<std::string> params = str_func::split(GetCsvLine(), ',');
 
 	if (params.size() != 5)
 		throw "Not enough parameters";
 
-	fish.SetName(params[0]);
-	fish.SetColor(params[1]);
-	fish.SetFreshwater(str_func::toBool(params[2]));
-	fish.SetHabitat(params[3]);
-	fish.SetPredator(str_func::toBool(params[4]));
-
-	return fish;
+	SetName(params[0]);
+	SetColor(params[1]);
+	SetFreshwater(str_func::toBool(params[2]));
+	SetHabitat(params[3]);
+	SetPredator(str_func::toBool(params[4]));
 }
 
-// breed
+// freshwater?
 bool Fish::GetFreshwater() const
 {
 	return _freshwater;
@@ -31,7 +29,7 @@ void Fish::SetFreshwater(bool value)
 	_freshwater = value;
 }
 
-// age
+// habitat
 std::string Fish::GetHabitat() const
 {
 	return _habitat;
@@ -41,7 +39,7 @@ void Fish::SetHabitat(std::string value)
 	_habitat = value;
 }
 
-// weight
+// predator?
 bool Fish::GetPredator() const
 {
 	return _predator;

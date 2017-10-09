@@ -5,6 +5,10 @@
 class Animal
 {
 public:
+	Animal(std::string);
+
+	std::string GetCsvLine() const;
+
 	// name
 	std::string GetName() const;
 	void SetName(std::string);
@@ -15,6 +19,7 @@ public:
 
 	std::string toString() const;
 private:
+	std::string _csvLine;
 	std::string _name;
 	std::string _color;
 };

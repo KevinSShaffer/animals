@@ -4,21 +4,19 @@
 #include "dog.h"
 #include "str_func.h"
 
-Dog Dog::Create(std::string csvLine)
+Dog::Dog(std::string filePath) :
+	Animal(filePath)
 {
-	Dog dog;
-	std::vector<std::string> params = str_func::split(csvLine, ',');
+	std::vector<std::string> params = str_func::split(GetCsvLine(), ',');
 
 	if (params.size() != 5)
 		throw "Not enough parameters";
 
-	dog.SetName(params[0]);
-	dog.SetBreed(params[1]);
-	dog.SetAge(std::stoi(params[2]));
-	dog.SetColor(params[3]);
-	dog.SetWeight(std::stod(params[4]));
-
-	return dog;
+	SetName(params[0]);
+	SetBreed(params[1]);
+	SetAge(std::stoi(params[2]));
+	SetColor(params[3]);
+	SetWeight(std::stod(params[4]));	
 }
 
 // breed

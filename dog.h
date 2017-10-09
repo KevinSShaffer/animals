@@ -6,7 +6,7 @@
 class Dog : public Animal
 {
 public:
-	static Dog Create(std::string);
+	Dog(std::string);
 
 	// breed
 	std::string GetBreed() const;
