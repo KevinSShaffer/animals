@@ -1,4 +1,5 @@
-
+#ifndef ANIMAL_H
+#define ANIMAL_H
 #include <string>
 
 class Animal
@@ -11,7 +12,10 @@ public:
 	// color
 	std::string GetColor() const;
 	void SetColor(std::string);
+
+	std::string toString() const;
 private:
 	std::string _name;
 	std::string _color;
 };
+#endif

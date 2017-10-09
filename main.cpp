@@ -4,25 +4,20 @@
 #include <string>
 #include "str_func.h"
 #include "dog.h"
+#include "fish.h"
 
 std::string readCsvLine(std::string);
 
 int main()
 {
-	std::string csvLine = readCsvLine("files\\Dog.csv");
+	Dog dog = Dog::Create(readCsvLine("files\\Dog.csv"));
+	std::cout << dog.toString() << std::endl;
 
-	Dog dog = Dog::Create(csvLine);
-
-	std::cout << "Name: " << dog.GetName() << std::endl;
-	std::cout << "Breed: " << dog.GetBreed() << std::endl;
-	std::cout << "Age: " << dog.GetAge() << std::endl;	
-	std::cout << "Color: " << dog.GetColor() << std::endl;
-	std::cout << "Weight: " << dog.GetWeight() << std::endl;
+	Fish fish = Fish::Create(readCsvLine("files\\Fish.csv"));
+	std::cout << fish.toString() << std::endl;
 
 	std::cout << "Press ctrl + z (ctrl + d) to quit." << std::endl;
-	while (std::cin)
-	{
-	}
+	while (std::cin) { }
 
 	return 0;
 }

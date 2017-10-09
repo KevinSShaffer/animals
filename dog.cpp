@@ -1,4 +1,5 @@
 
+#include <sstream>
 #include <string>
 #include "dog.h"
 #include "str_func.h"
@@ -48,4 +49,16 @@ double Dog::GetWeight() const
 void Dog::SetWeight(double value)
 {
 	_weight = value;
+}
+
+std::string Dog::toString() const
+{
+	std::ostringstream s;
+	s << GetName() << " the Dog" << std::endl <<
+		"Breed:\t" << GetBreed() << std::endl <<
+		"Age:\t" << GetAge() << std::endl <<
+		"Color:\t" << GetColor() << std::endl <<
+		"Weight:\t" << GetWeight() << std::endl;
+
+	return s.str();
 }

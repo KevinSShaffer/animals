@@ -1,4 +1,5 @@
-
+#ifndef DOG_H
+#define DOG_H
 #include <string>
 #include "animal.h"
 
@@ -18,9 +19,12 @@ public:
 	// weight
 	double GetWeight() const;
 	void SetWeight(double);
+
+	std::string toString() const;
 	
 private:
 	std::string _breed;
 	int _age;
 	double _weight;		
 };
+#endif
