@@ -1,6 +1,7 @@
 
 #include <sstream>
 #include <string>
+#include <stdexcept>
 #include "horse.h"
 #include "str_func.h"
 #include "exceptions.h"
