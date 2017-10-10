@@ -18,11 +18,11 @@ void createAndOutputAnimal(std::string);
 
 int main()
 {
-	createAndOutputAnimal<Dog>("files\\Dog.csv");
-	createAndOutputAnimal<Fish>("files\\Fish.csv");
-	createAndOutputAnimal<Horse>("files\\Horse.csv");
-	createAndOutputAnimal<Lizard>("files\\Lizard.csv");
-	createAndOutputAnimal<Monkey>("files\\Monkey.csv");
+	createAndOutputAnimal<Dog>("files/Dog.csv");
+	createAndOutputAnimal<Fish>("files/Fish.csv");
+	createAndOutputAnimal<Horse>("files/Horse.csv");
+	createAndOutputAnimal<Lizard>("files/Lizard.csv");
+	createAndOutputAnimal<Monkey>("files/Monkey.csv");
 
 	std::cout << "Press ctrl + z (ctrl + d) to quit." << std::endl;
 	while (std::cin) { }
