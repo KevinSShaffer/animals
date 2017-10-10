@@ -2,6 +2,7 @@
 #define DOG_H
 #include <string>
 #include "animal.h"
+#include "exceptions.h"
 
 class Dog : public Animal
 {

@@ -11,7 +11,7 @@ CXXFLAGS = -g
 
 LIBS = -lm
 
-OBJS = main.o str_func.o animal.o dog.o fish.o horse.o lizard.o monkey.o
+OBJS = main.o str_func.o exceptions.o animal.o dog.o fish.o horse.o lizard.o monkey.o
 
 TARGET = animals
 

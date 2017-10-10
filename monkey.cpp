@@ -3,6 +3,7 @@
 #include <string>
 #include "monkey.h"
 #include "str_func.h"
+#include "exceptions.h"
 
 Monkey::Monkey(std::string filePath) :
 	Animal(filePath)
@@ -10,14 +11,25 @@ Monkey::Monkey(std::string filePath) :
 	std::vector<std::string> params = str_func::split(GetCsvLine(), ',');
 
 	if (params.size() != 6)
-		throw "Incorrect number of parameters.";
+		throw UnableToInitialize(GetCsvLine());
 
-	SetName(params[0]);
-	SetColor(params[1]);
-	SetAge(std::stoi(params[2]));
-	SetWild(str_func::toBool(params[3]));
-	SetHome(params[4]);
-	SetEndangered(str_func::toBool(params[5]));
+	try
+	{
+		SetName(params[0]);
+		SetColor(params[1]);
+		SetAge(std::stoi(params[2]));
+		SetWild(str_func::toBool(params[3]));
+		SetHome(params[4]);
+		SetEndangered(str_func::toBool(params[5]));
+	}
+	catch(std::invalid_argument)
+	{
+		throw UnableToInitialize(GetCsvLine());
+	}
+	catch(std::out_of_range)
+	{
+		throw UnableToInitialize(GetCsvLine());
+	}
 }
 
 // age

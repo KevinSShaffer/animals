@@ -1,8 +1,10 @@
 
 #include <sstream>
 #include <string>
+#include <stdexcept>
 #include "dog.h"
 #include "str_func.h"
+#include "exceptions.h"
 
 Dog::Dog(std::string filePath) :
 	Animal(filePath)
@@ -10,13 +12,24 @@ Dog::Dog(std::string filePath) :
 	std::vector<std::string> params = str_func::split(GetCsvLine(), ',');
 
 	if (params.size() != 5)
-		throw "Incorrect number of parameters.";
+		throw UnableToInitialize(GetCsvLine());
 
-	SetName(params[0]);
-	SetBreed(params[1]);
-	SetAge(std::stoi(params[2]));
-	SetColor(params[3]);
-	SetWeight(std::stod(params[4]));	
+	try
+	{
+		SetName(params[0]);
+		SetBreed(params[1]);
+		SetAge(std::stoi(params[2]));
+		SetColor(params[3]);
+		SetWeight(std::stod(params[4]));
+	}
+	catch(std::invalid_argument)
+	{
+		throw UnableToInitialize(GetCsvLine());
+	}
+	catch(std::out_of_range)
+	{
+		throw UnableToInitialize(GetCsvLine());
+	}
 }
 
 // breed

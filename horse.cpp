@@ -3,6 +3,7 @@
 #include <string>
 #include "horse.h"
 #include "str_func.h"
+#include "exceptions.h"
 
 Horse::Horse(std::string filePath) :
 	Animal(filePath)
@@ -10,13 +11,24 @@ Horse::Horse(std::string filePath) :
 	std::vector<std::string> params = str_func::split(GetCsvLine(), ',');
 
 	if (params.size() != 5)
-		throw "Incorrect number of parameters.";
+		throw UnableToInitialize(GetCsvLine());
 
-	SetName(params[0]);
-	SetColor(params[1]);
-	SetManeColor(params[2]);
-	SetAge(std::stoi(params[3]));
-	SetHeight(std::stod(params[4]));
+	try
+	{
+		SetName(params[0]);
+		SetColor(params[1]);
+		SetManeColor(params[2]);
+		SetAge(std::stoi(params[3]));
+		SetHeight(std::stod(params[4]));
+	}
+	catch(std::invalid_argument)
+	{
+		throw UnableToInitialize(GetCsvLine());
+	}
+	catch(std::out_of_range)
+	{
+		throw UnableToInitialize(GetCsvLine());
+	}
 }
 
 // manecolor

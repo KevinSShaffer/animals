@@ -3,6 +3,7 @@
 #include <string>
 #include <fstream>
 #include "animal.h"
+#include "exceptions.h"
 
 Animal::Animal(std::string filePath)
 {
@@ -11,7 +12,7 @@ Animal::Animal(std::string filePath)
 	fs.open(filePath.c_str());
 
 	if (!std::getline(fs, line))
-		throw "Unable to read file.";
+		throw UnableToReadFile();
 	else
 		_csvLine = line;	
 }
