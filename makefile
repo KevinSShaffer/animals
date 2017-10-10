@@ -2,7 +2,7 @@
 .SUFFIXES : .c
 .SUFFIXES : .cpp
 
-INCDIR =
+INCDIR = -std=c++11
 LIBDIR =
 
 CC = g++
