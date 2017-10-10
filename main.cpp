@@ -7,6 +7,7 @@
 #include "fish.h"
 #include "horse.h"
 #include "lizard.h"
+#include "monkey.h"
 
 int main()
 {
@@ -21,6 +22,9 @@ int main()
 
 	Lizard lizard("files\\Lizard.csv");
 	std::cout << lizard.toString() << std::endl;
+
+	Monkey monkey("files\\Monkey.csv");
+	std::cout << monkey.toString() << std::endl;
 
 	std::cout << "Press ctrl + z (ctrl + d) to quit." << std::endl;
 	while (std::cin) { }

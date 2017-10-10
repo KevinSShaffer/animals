@@ -10,7 +10,7 @@ Horse::Horse(std::string filePath) :
 	std::vector<std::string> params = str_func::split(GetCsvLine(), ',');
 
 	if (params.size() != 5)
-		throw "Not enough parameters";
+		throw "Incorrect number of parameters.";
 
 	SetName(params[0]);
 	SetColor(params[1]);
